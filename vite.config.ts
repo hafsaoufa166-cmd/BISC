@@ -6,7 +6,7 @@ import {defineConfig} from 'vite';
 export default defineConfig(() => {
   return {
     // Remplacez 'nom-de-votre-depot' par le nom exact de votre projet sur GitHub
-    base: '/nom-de-votre-depot/', 
+    base: '/BISC/', 
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
