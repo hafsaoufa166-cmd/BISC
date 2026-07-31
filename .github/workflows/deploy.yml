@@ -2,7 +2,7 @@ name: Deploy Static Content to Pages
 
 on:
   push:
-    branches: ["main"] # Changez par "master" si votre branche s'appelle master
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -22,19 +22,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+
+      # Utilisation de 'install' classique pour éviter les stricts blocages de versions
       - name: Install dependencies
-        run: npm ci
+        run: npm install --legacy-peer-deps
+
+      # Exécution forcée de la compilation Vite
       - name: Build
         run: npm run build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: './dist'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
