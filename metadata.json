@@ -1,0 +1,6 @@
+{
+  "name": "Biscuiterie - Bouclage Bilan Matière & Analyse des Écarts",
+  "description": "Application de suivi du bilan matière, bouclage des pétrins (pâte, crème, enrobage), surpoids unitaire (UA) et pertes de cadence pour 4 lignes actives (B3, B4, G1, G3).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
