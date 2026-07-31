@@ -5,19 +5,19 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    // Remplacez 'nom-de-votre-depot' par le nom exact de votre projet sur GitHub
-    base: './', 
+    base: './', // Rend tous les chemins relatifs (très important pour GitHub Pages)
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
       },
     },
+    build: {
+      outDir: 'dist', // Force la sortie dans le dossier dist
+      emptyOutDir: true, // Nettoie le dossier avant de compiler
+    },
     server: {
-      // HMR is disabled in AI Studio via DISABLE_HMR env var.
-      // Do not modify—file watching is disabled to prevent flickering during agent edits.
       hmr: process.env.DISABLE_HMR !== 'true',
-      // Disable file watching when DISABLE_HMR is true to save CPU during agent edits.
       watch: process.env.DISABLE_HMR === 'true' ? null : {},
     },
   };
