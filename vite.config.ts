@@ -5,7 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: './', // Rend tous les chemins relatifs (très important pour GitHub Pages)
+    base: '/BISC/', // Rend tous les chemins relatifs (très important pour GitHub Pages)
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
